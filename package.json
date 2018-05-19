@@ -1,0 +1,26 @@
+{
+  "name": "monad-javascript",
+  "version": "1.0.0",
+  "description": "Monads in JavaScript",
+  "main": "monad",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kenokabe/monad-javascript.git"
+  },
+  "keywords": [
+    "monad",
+    "monads",
+    "monadic",
+    "functional",
+    "identiy"
+  ],
+  "author": "Ken OKABE",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kenokabe/monad-javascript/issues"
+  },
+  "homepage": "https://github.com/kenokabe/monad-javascript#readme"
+}
