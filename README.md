@@ -1,6 +1,6 @@
 
-# Monads-in-JavaScript
-Monads in JavaScript / sample implemantation
+# Monads in JavaScript
+
 Here is my crazy attempt to contribute to monads-beginners that you probably never have found anywhere else.
 
 ## In functional programming, a [monad][1] is a kind of building blocks of programming that behaves pretty well
@@ -387,7 +387,7 @@ M([1, 2, 3])(log)(map1)(log);
 ```
 
 Output:
-
+```console
     { [Function: M] val: [Function] }
     { [Function: M] val: [Function] }
     ------
@@ -408,6 +408,7 @@ Output:
     ------
     [ 1, 2, 3 ]
     [ 2, 3, 4 ]
+```
 
 Ok, worked.
 
@@ -432,8 +433,8 @@ the [Applicative](https://github.com/fantasyland/fantasy-land#applicative) and [
 #### left identity   M(a)(f) = f(a)   
 
 ```js
-M(7)(add1)(log) //8
-M(add1(7))(log) //8
+M(7)(add1) //8
+M(add1(7)) //8
 ```
 
 #### right identity  M = M(M)      
@@ -453,20 +454,20 @@ implement the [Apply](https://github.com/fantasyland/fantasy-land#apply) specifi
 #### identity
 
 ```js
-M(9)(M(x => x))(log);//9
+M(9)(M(x => x)) //9
 ```
 
 #### homomorphism
 
 ```js
-M(100)(M(add1))(log);//101
-M(add1(100))(log);//101
- ```
+M(100)(M(add1)) //101
+M(add1(100)) //101
+```
 
 #### interchange
 ```js
-M(3)(add1)(log);    //4
-M(add1)(f => f(3))(log);  //4
+M(3)(add1)    //4
+M(add1)(f => f(3))  //4
 ```
 
 >### Chain
@@ -477,8 +478,8 @@ implement the [Apply](https://github.com/fantasyland/fantasy-land#apply) specifi
 #### associativity
 
 ```js
-M(10)(add1)(add1)(log); //12
-M(10)(M(add1)(add1))(log); //12
+M(10)(add1)(add1) //12
+M(10)(M(add1)(add1)) //12
 ```
 
   [1]: https://en.wikipedia.org/wiki/Monad_(functional_programming)
