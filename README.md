@@ -138,13 +138,11 @@ Ok, the code has done the task to show "Hello world!" on the console, however, t
 
 To compose functions, the situation is uncomfortable; an uncomfortable function.
 
-On the other hand, there's a comfortable function.　Let's observe the following code:
+On the other hand, there's a comfortable function.　Let's investigate the following code:
 
 ```js
 const add1 = x => x + 1;
-const add2 = x => x + 2;
 [1, 2, 3].map(add1); //[2,3,4]
-[1, 2, 3].map(add2); //[3,4,5]
 ```
 
  Array in JavaScript behaves pretty well in the functional programming world.
