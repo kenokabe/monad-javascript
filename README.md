@@ -1,4 +1,5 @@
 
+
 # Monads in JavaScript
 
 Here is my crazy attempt to contribute to monads-beginners that you probably never have found anywhere else.
@@ -271,15 +272,17 @@ or
 
 `0` in `+`(addition) operation,
 
-    a + 0 = a  //right
-    0 + a = a  //left
+    a + 0 = a  //right identity
+    0 + a = a  //left identity
 
 `1` in `*`(multiplication) oeration,
 
-    a ∗ 1 = a  //right
-    1 ∗ a = a  //left
+    a ∗ 1 = a  //right identity
+    1 ∗ a = a  //left identity
 
 is called [identity element][17].
+
+So, `M` should be an identity element in the realm.
 
 As I have been emphasizing, **Functional programming is all about composing functions.**
 
@@ -305,6 +308,23 @@ M(5)(M(1)(plus)); //6
 const plus1 = M(1)(plus);
 M(5)(plus1)(;     //6
 ```
+
+In algebra,  [associative property](https://en.wikipedia.org/wiki/Associative_property):
+```
+1 + 2 + 3 = 1 + 2 + 3
+(1+2) + 3 = 1 + (2+3)
+    3 + 3 = 1 + 5
+        6 = 6
+```
+Composition of function is associattive for functional programming.
+
+```
+　(add1)(add2)(add3) = (add1)(add2)(add3)
+((add1)(add2))(add3) = (add1)((add2)(add3))
+        (add3)(add3) = (add1)(add5)
+　             (add6) = (add6)
+```
+
 
 # 5.Implementation
 
