@@ -5,7 +5,7 @@
 
 Here is my crazy attempt to contribute to monads-beginners that you probably never have found anywhere else.
 
-## In functional programming, a [monad][1] is a kind of building blocks of programming that behaves pretty well
+## A monad is a highly composable unit (a kind of building blocks of programming) in functional programming.
 
 (IMO, introducing "Monad laws" without any context and rationalization is merely a useless classification and hazard to understand the concept. No worry, I do the job later in this article.)
 
