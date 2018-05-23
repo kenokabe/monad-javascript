@@ -44,8 +44,12 @@
   const b = T();
   const c = a(b);
 
+  const add1 = a => (typeof a == 'number')
+    ? a + 1
+    : err();
+
   a[now](M(log)(log));
-  b[now](M(b => b + 1)(log));
+  b[now](M(add1)(add1)(log)(log));
   //==================
   a[now] = 9;
   b[now] = 66;

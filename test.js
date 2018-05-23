@@ -14,6 +14,16 @@
     })()
     : err();
 
+  // return a type checked function
+  const type = s => f => x => (typeof x == s)
+    ? f(x)
+    : err();
+
+  //need to define type of args
+  const add1 = type("number")(
+    a => a + 1
+  );
+
   const loglog = M(log)(log);
   M("test")(loglog);
 
@@ -27,9 +37,6 @@
 
   M("------")(log);
 
-  const add1 = a => (typeof a == 'number')
-    ? a + 1
-    : err();
 
   M(10)(add1)(log); //11
   M(10)(add1)(add1)(log); //12
@@ -75,7 +82,6 @@
   M("associativity")(log);
   M(10)(add1)(add1)(log); //12
   M(10)(M(add1)(add1))(log); //12
-
 
 
 //============================
