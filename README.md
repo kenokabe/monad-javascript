@@ -1,5 +1,6 @@
 
 
+
 # Monads in JavaScript
 
 Here is my crazy attempt to contribute to monads-beginners that you probably never have found anywhere else.
@@ -187,6 +188,90 @@ This looks like [algebra][12].
 
 Obtaining highly composable units, a programmer can write a code like algebra, which means significant, and worth studying very seriously.
 
+In algebra,
+
+    a
+    = 0+a
+    = 0+0+a
+    = 0+0+0+a
+
+or
+
+    a
+    = 1*a
+    = 1*1*a
+    = 1*1*1*a
+
+`0` in +(addition) operation,
+
+    a + 0 = a  //right identity
+    0 + a = a  //left identi
+
+`1` in *(multiplication) oeration,
+
+    a ∗ 1 = a  //right identity
+    1 ∗ a = a  //left identity
+
+is called [identity element][1].
+
+In algebra,
+
+    1 + 2 + 3 = 1 + 2 + 3
+    (1+2) + 3 = 1 + (2+3)
+        3 + 3 = 1 + 5
+            6 = 6
+
+is called [associative property][2]
+
+`number + number = number`
+
+`number * number = number`
+
+`string + string = string`
+
+    "Hello" + " " + "world" + "!"
+    = "Hello world" + "!"
+    = "Hello "+ "world!"
+
+is also associative, and identy element is `""`.
+
+So, what is the identiy element in functional programming?
+
+Something like:
+
+`identityF * f = f = f * identityF`
+
+What is it like associative property in functional programming?
+
+    const add1 = x => x + 1;
+    const add2 = x => x + 2;
+    const add3 = x => x + 2;
+
+Something like:
+
+    add1 * add2 * add3
+    = (add1 * add2) * add3
+    = add1 * (add2 * add3)
+
+or
+```
+　(add1)(add2)(add3) = (add1)(add2)(add3)
+((add1)(add2))(add3) = (add1)((add2)(add3))
+        (add3)(add3) = (add1)(add5)
+　             (add6) = (add6)
+```
+
+
+Functional programming is all about function composition.
+
+What we need in functional programming is
+
+`function * function = function`
+
+Of course, in JavaScript(or in other languages), we cannot write the exact form above because of the restrictions of the syntax of every language.
+
+
+
 In fact, we can have ["Algebraic JavaScript Specification"(Specification for interoperability of common algebraic structures in JavaScript)][13]
 
 [![enter image description here][14]][14]
@@ -254,37 +339,11 @@ Accordingly, in the `M` realm:
     = M(M(M(5)))
     ...
 
-As a result, I found `M` is somewhat transparent.
-
-In algebra, Simple similarities exist:
-
-    a
-    = 0+a
-    = 0+0+a
-    = 0+0+0+a
-
-or
-
-    a
-    = 1*a
-    = 1*1*a
-    = 1*1*1*a
-
-`0` in `+`(addition) operation,
-
-    a + 0 = a  //right identity
-    0 + a = a  //left identity
-
-`1` in `*`(multiplication) oeration,
-
-    a ∗ 1 = a  //right identity
-    1 ∗ a = a  //left identity
-
-is called [identity element][17].
-
-So, `M` should be an identity element in the realm.
+As a result, I found `M` is somewhat transparent and, `M` should be an identity element in the realm.
 
 As I have been emphasizing, **Functional programming is all about composing functions.**
+
+Composition of function is associattive for functional programming.
 
 The `M` should be flexibly written to compose functions:  
 
@@ -307,22 +366,6 @@ M(plus(1)(5));    //6
 M(5)(M(1)(plus)); //6
 const plus1 = M(1)(plus);
 M(5)(plus1)(;     //6
-```
-
-In algebra,  [associative property](https://en.wikipedia.org/wiki/Associative_property):
-```
-1 + 2 + 3 = 1 + 2 + 3
-(1+2) + 3 = 1 + (2+3)
-    3 + 3 = 1 + 5
-        6 = 6
-```
-Composition of function is associattive for functional programming.
-
-```
-　(add1)(add2)(add3) = (add1)(add2)(add3)
-((add1)(add2))(add3) = (add1)((add2)(add3))
-        (add3)(add3) = (add1)(add5)
-　             (add6) = (add6)
 ```
 
 
