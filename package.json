@@ -1,6 +1,6 @@
 {
   "name": "monad-javascript",
-  "version": "1.2.1",
+  "version": "1.2.3",
   "description": "Monads in JavaScript",
   "main": "monad",
   "scripts": {

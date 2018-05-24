@@ -1,6 +1,7 @@
 
 
 
+
 # Monads in JavaScript
 
 Here is my crazy attempt to contribute to monads-beginners that you probably never have found anywhere else.
@@ -177,14 +178,18 @@ The code suggests once you enter Array realm, the exit will be always Array real
 Since Array realm is a world of self-contained, it is possible to do something like algebra in functional programming.
 
 When we have:  
-`Array.map(F).map(F).map(F)...`
+`Array.map(F).map(F).map(F)... = Array`
 
 Considering `.map(F)` is JavaScript Array specific syntax, replacing it to more concise syntax would be possible, for instance, by taking advantage of some transpiler such as [Babel][11].
 
 So replacing `.map(F)` to `*F`:  
-`Array*F*F*F...`
+`Array*F*F*F... = Array`
 
 This looks like [algebra][12].
+
+`number + number + ... = number`
+
+`number * number * ... = number`
 
 Obtaining highly composable units, a programmer can write a code like algebra, which means significant, and worth studying very seriously.
 
@@ -223,9 +228,6 @@ In algebra,
 
 is called [associative property][2]
 
-`number + number = number`
-
-`number * number = number`
 
 `string + string = string`
 
