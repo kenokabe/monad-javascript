@@ -379,19 +379,20 @@ Here's an implementation of `M`:
 const compose = (f, g) => (x => g(f(x)));
 const isMonad = (m) => !(typeof m.val === "undefined");
 
-const M = (m = []) => {
-  const f = m1 => {
-    try { //check type error
-      return M(M(m1).val(m));
-    } catch (e) {
-      return M(compose(m, M(m1).val)); // f-f compose
+const M = (m = []) => isMonad(m)
+  ? m
+  : (() => {
+    const f = m1 => {
+      try { //check type error
+        return M(M(m1).val(m));
+      } catch (e) {
+        return M(compose(m, M(m1).val)); // f-f compose
+      };
     };
-  };
-  f.val = m;
-  return isMonad(m)
-    ? m
-    : f;
-};
+    f.val = m;
+    return f;
+  })();
+
 M.val = m => m;
 ```
 
