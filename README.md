@@ -540,7 +540,6 @@ Ok, worked.
 
 `M` is a highly composable unit in functional programming.
 
-
 # 6.Verification
 
 So, is this so-called Monad?
