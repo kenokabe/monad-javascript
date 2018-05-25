@@ -9,17 +9,17 @@
     }
   };
 
-  const isMonad = (m) => !(typeof m.val === "undefined");
+  const isMonad = (m) => !(typeof m.monadVal === "undefined");
 
   const M = (m = []) => isMonad(m)
     ? m
     : (() => {
-      const f = m1 => M(compose(m, M(m1).val)); // f-f compose
-      f.val = m;
+      const f = m1 => M(compose(m, M(m1).monadVal)); // f-f compose
+      f.monadVal = m;
       return f;
     })();
 
-  M.val = m => m;
+  M.monadVal = m => m;
 
   //------------------
   if (typeof module !== "undefined" && module.exports) {
