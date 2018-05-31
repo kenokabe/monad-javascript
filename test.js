@@ -23,9 +23,9 @@
     : err();
 
   //need to define type of args
-  const add1 = type(NUMBER)(
+  const add1 = M(type(NUMBER)(
     a => a + 1
-  );
+  ));
 
   const loglog = M(log)(log);
   M("test")(loglog);
@@ -42,9 +42,9 @@
   M(10)(add1)(log); //11
   M(10)(add1)(add1)(log); //12
   M(10)(add1)(add1)(add1)(log); //13
-  const add2 = M(add1)(add1);
+  const add2 = (add1)(add1);
   M(10)(add2)(log); //12
-  const add3 = M(add2)(add1);
+  const add3 = (add2)(add1);
   M(10)(add3)(log); //13
 
   M("------")(log);
@@ -94,7 +94,6 @@
 
   (() => {
 
-
     Number.prototype.compose = function(f) {
       return f(this);
     };
@@ -117,8 +116,6 @@
     console.log(
       (add1).compose(f => f(3).compose(add1))
     );
-
-
 
   })();
 
