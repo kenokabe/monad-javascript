@@ -1,7 +1,4 @@
 
-
-
-
 # Monads in JavaScript
 
 Here is my crazy attempt to contribute to monads-beginners that you probably never have found anywhere else.
@@ -606,6 +603,43 @@ implement the [Apply](https://github.com/fantasyland/fantasy-land#apply) specifi
 M(10)(add1)(add1) //12
 M(10)(M(add1)(add1)) //12
 ```
+
+# 7. Yet another Implementation
+
+```js
+Number.prototype.compose = function(f) {
+  return f(this);
+};
+Function.prototype.compose = function(f) {
+  try { //check type error
+    return f(this);
+  } catch (e) {
+    return (x => f(this(x)));
+  };
+};
+const identity = (m) => (m)
+
+//====================
+console.log(
+  (0).compose(add1).compose(add1)
+);
+console.log(
+  (0).compose(add1.compose(add1))
+);
+console.log(
+  (add1).compose(f => f(3).compose(add1))
+);
+
+```
+
+# 8.
+
+### Try my anoter project: timeline-monoid!!
+
+#### GitHub: [timeline-monoid](https://github.com/timeline-monoid/timeline-monoid)    
+#### npm : [timeline-monoid](https://www.npmjs.com/package/timeline-monoid)
+
+# MIT License
 
   [1]: https://en.wikipedia.org/wiki/Monad_(functional_programming)
   [2]: https://en.wikipedia.org/wiki/USB

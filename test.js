@@ -90,6 +90,38 @@
   M(10)(add1)(add1)(log); //12
   M(10)(M(add1)(add1))(log); //12
 
+  M("---")(log);
+
+  (() => {
+
+
+    Number.prototype.compose = function(f) {
+      return f(this);
+    };
+    Function.prototype.compose = function(f) {
+      try { //check type error
+        return f(this);
+      } catch (e) {
+        return (x => f(this(x)));
+      };
+    };
+    const identity = (m) => (m)
+
+    //====================
+    console.log(
+      (0).compose(add1).compose(add1)
+    );
+    console.log(
+      (0).compose(add1.compose(add1))
+    );
+    console.log(
+      (add1).compose(f => f(3).compose(add1))
+    );
+
+
+
+  })();
+
 
 //============================
 })();
